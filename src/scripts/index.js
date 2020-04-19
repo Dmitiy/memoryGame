@@ -83,6 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const cardsChosen = [];
 	const cardsChosenId = [];
 
+	// shuffle cards
+	board.sort(() => 0.5 - Math.random());
 
 	// init score value : count
 	resultDisplay.innerHTML = '0';
