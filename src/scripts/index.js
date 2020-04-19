@@ -74,10 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	// score: count
 	const resultDisplay = document.querySelector('.txt-result');
 	// display board: 4x4
-	let startNumberOfCards = 4;
+	const startNumberOfCards = 8;
 	const initialCardArray = cardArray.slice(0, startNumberOfCards);
 	const duplicateCardArray = [...initialCardArray];
 	const board = [...initialCardArray, ...duplicateCardArray];
+
+	// duplicate search ...
+	const cardsChosen = [];
+	const cardsChosenId = [];
+
 
 	// init score value : count
 	resultDisplay.innerHTML = '0';
@@ -86,10 +91,24 @@ document.addEventListener('DOMContentLoaded', () => {
 	function createBoard() {
 		for (let i = 0; i < board.length; i++) {
 			const card = document.createElement('img');
+			// back images
 			card.setAttribute('src', 'images/Wood-Pattern5.png');
 			card.setAttribute('data-id', i);
+			// cardsChosen
+			card.addEventListener('click', flipCard);
 			grid.appendChild(card);
 		}
 	}
+
+	// flip card - lay a card face down
+	function flipCard() {
+		const cardId = this.getAttribute('data-id');
+		cardsChosen.push(cardArray[cardId].name);
+		cardsChosenId.push(cardId);
+
+		this.setAttribute('src', cardArray[cardId].imgSrc);
+	}
+
+	// init
 	createBoard();
 });
