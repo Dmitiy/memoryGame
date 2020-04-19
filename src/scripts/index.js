@@ -78,16 +78,22 @@ document.addEventListener('DOMContentLoaded', () => {
 	const initialCardArray = cardArray.slice(0, startNumberOfCards);
 	const duplicateCardArray = [...initialCardArray];
 	const board = [...initialCardArray, ...duplicateCardArray];
+	console.log(board);
 
 	// duplicate search ...
-	const cardsChosen = [];
-	const cardsChosenId = [];
+	const cardsPairChosen = {
+		cardsChosen: [],
+		cardsChosenId: [],
+	}
+
+	// final step, all matches
+	const cardsWon = [];
 
 	// shuffle cards
 	board.sort(() => 0.5 - Math.random());
 
 	// init score value : count
-	resultDisplay.innerHTML = '0';
+	resultDisplay.innerHTML = `0 / ${board.length / 2}`;
 
 	// create board
 	function createBoard() {
@@ -102,13 +108,43 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
+	// check for matches
+	function checkForMatch() {
+		var cards = document.querySelectorAll('img');
+		const optionOneId = cardsPairChosen.cardsChosenId[0];
+		const optionTwoId = cardsPairChosen.cardsChosenId[1];
+
+		if (cardsPairChosen.cardsChosen[0] === cardsPairChosen.cardsChosen[1]) {
+			alert('You find a match');
+			cards[optionOneId].setAttribute('src', 'images/Wood-Pattern6.png');
+			cards[optionTwoId].setAttribute('src', 'images/Wood-Pattern6.png')
+
+			cardsWon.push(cardsPairChosen.cardsChosen);
+		} else {
+			cards[optionOneId].setAttribute('src', 'images/Wood-Pattern7.png');
+			cards[optionTwoId].setAttribute('src', 'images/Wood-Pattern7.png');
+			alert('Попытайтесь ещё раз');
+		}
+		cardsPairChosen.cardsChosen = [];
+		cardsPairChosen.cardsChosenId = [];
+		resultDisplay.textContent = `${cardsWon.length} / ${board.length / 2}`;
+
+		if (cardsWon.length === board.length / 2) {
+			resultDisplay.textContent = 'все!';
+		}
+	}
+
 	// flip card - lay a card face down
 	function flipCard() {
 		const cardId = this.getAttribute('data-id');
-		cardsChosen.push(cardArray[cardId].name);
-		cardsChosenId.push(cardId);
+		cardsPairChosen.cardsChosen.push(board[cardId].name);
+		cardsPairChosen.cardsChosenId.push(cardId);
 
-		this.setAttribute('src', cardArray[cardId].imgSrc);
+		this.setAttribute('src', board[cardId].imgSrc);
+
+		if (cardsPairChosen.cardsChosen.length === 2) {
+			setTimeout(checkForMatch(), 500)
+		}
 	}
 
 	// init
