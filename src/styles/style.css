@@ -49,4 +49,12 @@ h1,
   margin: 10px auto;
   outline: solid #fff;
 }
+
+#app .grid img {
+  border: 0;
+}
+
+#app .grid img:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=style.css.map */
