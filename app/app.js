@@ -1,71 +1,72 @@
+
 document.addEventListener('DOMContentLoaded', () => {
 
 	//card options
 	const cardArray = [
 		{
 			name: 'CD',
-			imgSrc: 'images/CD.png'
+			imgSrc: './../src/images/CD.png'
 		},
 		{
 			name: 'Dish-Antenna',
-			imgSrc: 'images/Dish-Antenna.png'
+			imgSrc: './../src/images/Dish-Antenna.png'
 		},
 		{
 			name: 'Laptop',
-			imgSrc: 'images/Laptop.png'
+			imgSrc: './../src/images/Laptop.png'
 		},
 		{
 			name: 'Light-Bulb',
-			imgSrc: 'images/Light-Bulb.png'
+			imgSrc: './../src/images/Light-Bulb.png'
 		},
 		{
 			name: 'Loud-Speaker',
-			imgSrc: 'images/Loud-Speaker.png'
+			imgSrc: './../src/images/Loud-Speaker.png'
 		},
 		{
 			name: 'Table-Lamp',
-			imgSrc: 'images/Table-Lamp.png'
+			imgSrc: './../src/images/Table-Lamp.png'
 		},
 		{
 			name: 'Touch',
-			imgSrc: 'images/Touch.png'
+			imgSrc: './../src/images/Touch.png'
 		},
 		{
 			name: 'Keyboard',
-			imgSrc: 'images/Keyboard.png'
+			imgSrc: './../src/images/Keyboard.png'
 		},
 
 		{
 			name: 'Refrigerator',
-			imgSrc: 'images/Refrigerator.png'
+			imgSrc: './../src/images/Refrigerator.png'
 		},
 		{
 			name: 'Mixer-Grinder',
-			imgSrc: 'images/Mixer-Grinder.png'
+			imgSrc: './../src/images/Mixer-Grinder.png'
 		},
 		{
 			name: 'Memory-Card',
-			imgSrc: 'images/Memory-Card.png'
+			imgSrc: './../src/images/Memory-Card.png'
 		},
 		{
 			name: 'Night-Lamp',
-			imgSrc: 'images/Night-Lamp.png'
+			imgSrc: './../src/images/Night-Lamp.png'
 		},
 		{
 			name: 'PBX',
-			imgSrc: 'images/PBX.png'
+			imgSrc: './../src/images/PBX.png'
 		},
 		{
 			name: 'Tape-Recorder',
-			imgSrc: 'images/Tape-Recorder.png'
+			imgSrc: './../src/images/Tape-Recorder.png'
 		},
 		{
 			name: 'Printer',
-			imgSrc: 'images/Printer.png'
+			imgSrc: './../src/images/Printer.png'
 		},
 		{
 			name: 'Tools',
-			imgSrc: 'images/Tools.png'
+			imgSrc: './../src/images/Tools.png'
 		},
 	];
 
@@ -78,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const initialCardArray = cardArray.slice(0, startNumberOfCards);
 	const duplicateCardArray = [...initialCardArray];
 	const board = [...initialCardArray, ...duplicateCardArray];
+	console.log(board);
 
 	// duplicate search ...
 	const cardsPairChosen = {
@@ -98,8 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	function createBoard() {
 		for (let i = 0; i < board.length; i++) {
 			const card = document.createElement('img');
-			// back images
-			card.setAttribute('src', 'images/Wood-Pattern5.png');
+			// back ./../src/images
+			card.setAttribute('src', './../src/images/Wood-Pattern5.png');
 			card.setAttribute('data-id', i);
 			// cardsChosen
 			card.addEventListener('click', flipCard);
@@ -115,13 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (cardsPairChosen.cardsChosen[0] === cardsPairChosen.cardsChosen[1]) {
 			alert('You find a match');
-			cards[optionOneId].setAttribute('src', 'images/Wood-Pattern6.png');
-			cards[optionTwoId].setAttribute('src', 'images/Wood-Pattern6.png')
+			cards[optionOneId].setAttribute('src', './../src/images/Wood-Pattern6.png');
+			cards[optionTwoId].setAttribute('src', './../src/images/Wood-Pattern6.png')
 
 			cardsWon.push(cardsPairChosen.cardsChosen);
 		} else {
-			cards[optionOneId].setAttribute('src', 'images/Wood-Pattern7.png');
-			cards[optionTwoId].setAttribute('src', 'images/Wood-Pattern7.png');
+			cards[optionOneId].setAttribute('src', './../src/images/Wood-Pattern7.png');
+			cards[optionTwoId].setAttribute('src', './../src/images/Wood-Pattern7.png');
 			alert('Попытайтесь ещё раз');
 		}
 		cardsPairChosen.cardsChosen = [];
