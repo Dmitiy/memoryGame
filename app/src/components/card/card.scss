@@ -1,8 +1,10 @@
+$bg-card-image: "./scss/assets/images/Wood-Pattern5.png";
+
 .flip-container {
     perspective: 1000px;
     display: inline-block;
     border: 1px solid #fff;
-    background-color: #000;
+    background-image: url(#{$bg-card-image});
     &.flipped {
         .flipper {
             transform: rotateY(180deg);
