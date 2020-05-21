@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Card from "../card";
 
-function Board({ cards, flipped, handleClick }) {
+function Board({ disabled, cards, flipped, solution, handleClick }) {
   return (
     <div className="board">
       {cards.map((card) => (
@@ -14,7 +14,10 @@ function Board({ cards, flipped, handleClick }) {
           width={100}
           height={100}
           flipped={flipped.includes(card.id)}
-          handleClick={() => handleClick(card.id)}
+          solution={solution.includes(card.id)}
+          handleClick={handleClick}
+          disabled={disabled || solution.includes(card.id)}
+          {...card}
         />
       ))}
     </div>
@@ -22,8 +25,10 @@ function Board({ cards, flipped, handleClick }) {
 }
 
 Board.propTypes = {
+  disabled: PropTypes.bool.isRequired,
   cards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   flipped: PropTypes.arrayOf(PropTypes.number).isRequired,
+  solution: PropTypes.arrayOf(PropTypes.number).isRequired,
   handleClick: PropTypes.func.isRequired,
 };
 
