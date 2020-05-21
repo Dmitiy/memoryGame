@@ -1,7 +1,15 @@
-import React from "react";
+import React from 'react';
+import { GameProvider } from './Provider/GameProvider';
+import Board from './components/board';
 
 const App = () => {
-  return <div>version 2</div>;
+  return (
+    <GameProvider>
+      <div className='App'>
+        <Board />
+      </div>
+    </GameProvider>
+  );
 };
 
 export default App;
