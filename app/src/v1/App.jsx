@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Board from "./components/board";
-import Navbar from "./components/navbar";
+import Board from "../components/board";
+import Navbar from "../components/navbar";
 import loadCards from "./db";
 
 function App() {
@@ -41,14 +41,12 @@ function App() {
     }
   };
 
-  const preloadImages = () =>
+  const preloadImages = () => {
     cards.map((card) => {
       const src = `./assets/images/${card.type}.png`;
-      console.log(card);
-
       new Image().src = src;
     });
-
+  };
   const noMatch = () => {
     setTimeout(resetCards, 2000);
   };

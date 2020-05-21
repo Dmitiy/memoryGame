@@ -1,5 +1,5 @@
 function shuffle(array) {
-  const _arr = array.slice(0);
+  const _arr = array.slice();
   for (let i = 0; i < array.length - 1; i++) {
     let randomIndex = Math.floor(Math.random() * (i + 1));
     let temp = _arr[i];
