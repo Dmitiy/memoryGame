@@ -1,6 +1,6 @@
 import React from 'react';
-import { GameProvider } from './Provider/GameProvider';
-import Board from './components/board';
+import { GameProvider } from './GameProvider';
+import Board from '../components/board';
 
 const App = () => {
   return (

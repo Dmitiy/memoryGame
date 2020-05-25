@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './v2/App';
+import App from './v2/redux/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
