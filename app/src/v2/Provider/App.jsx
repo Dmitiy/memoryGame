@@ -1,14 +1,21 @@
 import React from 'react';
-import { GameProvider } from './GameProvider';
 import Board from '../components/board';
 
 const App = () => {
+  const cards = [
+    'CD',
+    'Dish-Antenna',
+    'Laptop',
+    'Light-Bulb',
+    'Loud-Speaker',
+    'Table-Lamp',
+    'Touch',
+    'Keyboard',
+  ];
   return (
-    <GameProvider>
-      <div className='App'>
-        <Board />
-      </div>
-    </GameProvider>
+    <div className='App'>
+      <Board cards={cards} />
+    </div>
   );
 };
 
