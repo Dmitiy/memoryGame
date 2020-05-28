@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Board from "../components/board";
-import Navbar from "../components/navbar";
-import loadCards from "./db";
+import React, { useState, useEffect } from 'react';
+import Board from './components/board';
+import loadCards from './db';
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -48,7 +47,7 @@ function App() {
     });
   };
   const noMatch = () => {
-    setTimeout(resetCards, 2000);
+    setTimeout(resetCards, 1200);
   };
 
   const resetCards = () => {
@@ -82,9 +81,14 @@ function App() {
     callback(newScore);
   }
   return (
-    <div>
-      <h2>Количество найденных совпадений:</h2>
-      <Navbar wins={wins} score={score} newGame={newGame} />
+    <div className='container'>
+      <h1 className='title'>
+        Memory Game -&nbsp;
+        <small className='score'>
+          [ score: {`${score}/${cards.length / 2}`}]
+        </small>
+      </h1>
+      <br />
       <Board
         cards={cards}
         flipped={flipped}
@@ -92,6 +96,14 @@ function App() {
         disabled={disabled}
         solution={solution}
       />
+      <br />
+      <button
+        type='button'
+        className='mui-btn mui-btn--primary btn-restart'
+        onClick={() => newGame()}
+      >
+        Restart Game
+      </button>
     </div>
   );
 }

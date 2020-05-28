@@ -1,4 +1,4 @@
-$bg-card-image: "./scss/assets/images/Wood-Pattern5.png";
+$bg-card-image: './scss/assets/images/Wood-Pattern5.png';
 
 .flip-container {
   perspective: 1000px;
@@ -6,6 +6,9 @@ $bg-card-image: "./scss/assets/images/Wood-Pattern5.png";
   border: 1px solid #fff;
   // background-image: url(#{$bg-card-image});
   background-color: #000;
+  &:hover {
+    cursor: pointer;
+  }
   &.flipped {
     .flipper {
       transform: rotateY(180deg);

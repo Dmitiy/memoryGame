@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-import Card from "../card";
+import React from 'react';
+import PropTypes from 'prop-types';
+import './board.scss';
+import Card from '../card';
 
 function Board({ disabled, cards, flipped, solution, handleClick }) {
   return (
-    <div className="board">
+    <div className='board'>
       {cards.map((card) => (
         <Card
           key={card.id}
