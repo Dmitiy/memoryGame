@@ -1,1 +1,1 @@
-#[MEMORY GAME](https://dmitiy.github.io/memoryGame/)
+[MEMORY GAME](https://dmitiy.github.io/memoryGame/)
